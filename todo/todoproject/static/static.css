@@ -1,0 +1,15 @@
+.banner{
+    background-color:blue;
+    color:white;
+    width:800%;
+    height:70%;
+    margin-bottom:120px;
+    }
+
+.banner-text{
+    top:30%;
+    left:50%;
+    position:absolute;
+    transform:transform;
+
+}

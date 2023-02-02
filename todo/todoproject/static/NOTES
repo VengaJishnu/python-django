@@ -1,0 +1,38 @@
+CURRENTLY IN TODO WE ARE USING FUNCTION BASED VIWES
+LIKE VIEWS WE ARE SUING (DEF) FUNCTION
+
+GENERIC VIEWS:- common things which we are using
+ They take certain common idioms and patterns found in view development and abstract them
+  so that you can quickly write common views of data without having to write too much code.
+
+  it will be easy no need to write too much codes
+
+LIST VIEW FUCTION:-
+
+Syntax in view:
+    class tasklistview(ListView):  / class creation and need to call Listview(need to import List view)
+    model = todo                    / assigning model as todo (created model)
+    template_name = 'todo.html'     / assigning in which tempate it should show
+    context_object_name = 'todo3'   /here in html we assigned todo3 as object (fetched data (ginja))
+
+DETAIL VIEW:-
+class taskdetailview(DetailView):
+    model = todo
+    template_name = 'details.html'
+    context_object_name = 'task'
+same as list view but in url we need add pk because here primary keyit will consider
+    path('cbvdetails/<int:pk>/', views.taskdetailview.as_view(), name='cbvdetails'),
+why pk:=
+becuase based on the id only we need display
+
+UPDATE VIEW:-
+class taskupdate(UpdateView):
+    model = todo
+    template_name = 'update.html'
+    context_object_name = 'task3'
+    fields = ['name','priority', 'date']
+same as last 2 but only one thing here we need to add the fields also
+            def get_success_url(self):
+        return reverse_lazy('cbvdetails',kwargs={'pk':self.object.id})
+        this is the url creation in class
+     we are calling CBVDETAILS url (url name) and passing the arguments (kwargs={'pk':self.object.id})( ONLY 1 ARGUMENT)

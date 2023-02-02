@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="col-md-3">
+        <div class="shadow card">
+            <div class="card-body">
+                <div class="card-title"><h4>{{task.name}}</h4></div>
+                <div class="card-text">{{task.priority}}<br></div>
+                <div class="card-text">{{task.date}}<br></div>
+            </div>
+            <a href="{% url 'deleted' task.id%}" class="btn btn-danger">Done</a>
+             <a href="{% url 'edit' task.id%}" class="btn btn-warning">Update</a>
+     </div>
+<!--            here iam not using any for loop because directly with the variable name iam assigning-->
+{% endblock %}
